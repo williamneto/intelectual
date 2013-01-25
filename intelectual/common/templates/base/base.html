@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>{% block title %}{% endblock %} - Intelectual</title>
+	</head>
+	<body>
+	
+	{% block content %}{% endblock %}
+	
+	<div class="footer">
+		{% if user %}
+		Logado como - {{ user.username }}
+		{% endif %}
+	</body>
+</html>

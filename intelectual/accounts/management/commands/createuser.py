@@ -12,7 +12,7 @@ from optparse import make_option
 from django.core import exceptions
 from django.core.management.base import BaseCommand, CommandError
 from django.utils.translation import ugettext as _
-from stock.accounts.models import AdminProfile
+from intelectual.accounts.models import AdminProfile
 
 RE_VALID_USERNAME = re.compile('[\w.@+-]+$')
 
