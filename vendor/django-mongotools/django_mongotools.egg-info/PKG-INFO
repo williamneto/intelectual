@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: django-mongotools
+Version: 0.1dev
+Summary: ClassViews, Form mongoengine support for django
+Home-page: http://github.com/wpjunior/django-mongotools/
+Author: Wilson Pinto Júnior
+Author-email: wilsonpjunior@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GPL License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Django

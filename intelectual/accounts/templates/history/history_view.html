@@ -1,0 +1,62 @@
+{% extends "master/base.html" %}
+
+{% block title %}
+Histórico de Ações de {% firstof object.get_full_name object.username %}
+{% endblock %}
+
+{% block header %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/lethus.bootstrapListBuilder.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/lethus.bootstrapListBuilder.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-historyfilter.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/accounts.history.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/datepicker.css"/>
+<style type="text/css">
+  #diario input {width: 90px;}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>
+    Histórico de Ações de {% firstof object.get_full_name object.username %}
+  </h1>
+</div>
+
+<form action="." id="filter-form" method="GET" class="well form-inline">
+{{ filter_form.from_date }}
+{{ filter_form.to_date }}
+{{ filter_form.module }}
+{{ filter_form.action }}
+</form>
+
+
+<div id="list" class="well">
+  <div id="toolbar" class="btn-group">
+	<a id="pdf" class="btn output" rel="pdf" href="#">
+      <i class="icon-print"></i> Exportar para PDF
+    </a>
+	<a id="csv" class="btn output" rel="csv"  href="#">
+      <i class="icon-list-alt"></i> Exportar para CSV
+    </a>
+  </div>
+
+  <table cellspacing="0" id="result" class="display table table-striped table-bordered">
+	<thead>
+	  <tr>
+	    <th scope="col">ID</th>
+	    <th scope="col">Módulo</th>
+	    <th scope="col">Ação</th>
+        <th scope="col" class="link" rel="4">Objeto Link</th>
+	    <th scope="col">Objeto</th>
+	    <th scope="col" class="sort-desc">Horário</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  
+	</tbody>
+  </table>
+</div>
+<br clear="all" />
+{% endblock %}

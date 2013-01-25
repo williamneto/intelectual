@@ -1,24 +1,14 @@
 # -*- coding: utf-8 -*
 
-from itertools import chain
-
-from lethusbox.django.formfield import FormField
-
 from django.contrib.auth import authenticate
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.models import get_current_site
 from django.template import Context, loader
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from django.utils.http import int_to_base36
 from mongotools.forms import MongoForm
 
-from constants import PERMISSIONS
-from widgets import PermissionSelect, ActionSelect
-
-from models import User, UnidadeProfile
-from stock.common.fields import MyEmailInput
-from stock.common.forms import FilterForm
+from models import User
 
 def base36encode(number):
     if not isinstance(number, (int, long)):

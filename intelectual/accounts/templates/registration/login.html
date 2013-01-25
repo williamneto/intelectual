@@ -1,0 +1,49 @@
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="span8">
+    </div>
+    <div class="span4">
+        <h1 class="entrar">entrar</h1>
+        <form id="form" method="post" enctype="multipart/form-data" action="." novalidate>
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                <div class="alert alert-error"  >
+                    <button data-dismiss="alert" class="close" type="button">×</button>
+                    <p>Usuário ou Senha incorretos.</p>
+                </div>
+                {% endif %}
+
+	           <div class="control-group">
+	            <label class="control-label" for="id_username">Usuário</label>
+	            <div class="controls">
+	                <div class="input-prepend">
+	                    <span class="add-on">
+	                        <i class="icon-envelope"></i>
+	                    </span>
+	                    <input id="id_username" class="span3" name="username" type="text" />
+	                </div>
+	            </div>
+	           </div>
+	           
+	           <div class="control-group">
+	            <label class="control-label" for="id_password">Senha</label>
+	            <div class="controls">
+	                <div class="input-prepend">
+	                    <span class="add-on">
+	                        <i class="icon-lock"></i>
+	                    </span>
+	                    <input id="id_password" class="span3" name="password" type="password" />
+	                </div>
+	            </div>
+	           </div>
+	           
+	             <input type="submit" value="Entrar" class="btn btn-success">
+	             <a href="/auth/password_reset/" id="btn_reset_pass" class="btn btn-warning btn-mini">Esqueceu sua senha?</a>
+	        </form>
+    </div>
+</div>
+
+{% endblock %}

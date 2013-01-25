@@ -1,0 +1,101 @@
+{% extends "master/base.html" %}
+{% block title %} {% if object  %}Editanto{% else %}Adicionando{% endif %} Usuário{% endblock %}
+
+{% block header %}
+    <script type="text/javascript">
+        $("#id_unidade").combobox()
+    </script>
+{% endblock %}
+{% block content %}
+{% include "master/message.error.html" %}
+
+    <div class="page-header">
+        <h1>Dados do usuário</h1>
+    </div>
+    <form id="form" method="POST">
+    <p>
+        <input class="btn btn-success" type="submit" value="Salvar">
+        <input class="btn" type="button" value="Voltar" onclick="history.go(-1)">
+    </p>
+    
+    <ul class="nav nav-tabs">
+        <li{% if not password_tab %} class="active"{% endif %}><a href="#geral" data-toggle="tab">Dados básicos</a></li>
+        {% if form.permissions %}
+        <li><a href="#permissions" data-toggle="tab">Permissões</a></li>
+        {% endif %}
+        {% if form2 %}<li><a href="#password" data-toggle="tab">Alterar senha</a></li>{% endif %}
+    </ul>
+    
+    <div class="tab-content">
+        
+        <div class="tab-pane{% if not password_tab %} active{% endif %}" id="geral">
+		        {% csrf_token %}
+			
+		        {% with field=form.username %}
+		        {% include "master/field_snippet.html" %}
+		        {% endwith %}
+		
+		        {% with field=form.first_name %}
+		        {% include "master/field_snippet.html" %}
+		        {% endwith %}
+		
+		        {% with field=form.last_name %}
+		        {% include "master/field_snippet.html" %}
+		        {% endwith %}		
+		
+		        {% with field=form.email %}
+		        {% include "master/field_snippet.html" %}
+		        {% endwith %}
+		
+		        {% with field=form.is_active %}
+		        {% include "master/field_snippet.html" %}
+		        {% endwith %}
+		
+		        {% with field=form.unidade %}
+		        {% include "master/field_snippet.html" %}
+		        {% endwith %}
+		
+                {% if form.password1 %}
+                    {% with field=form.password1 %}
+                    {% include "master/field_snippet.html" %}
+                    {% endwith %}
+
+                    {% with field=form.password2 %}
+                    {% include "master/field_snippet.html" %}
+                    {% endwith %}
+
+                {% endif %}
+			
+	        </form>
+	   </div>
+	   
+	   {% if form.permissions %}
+	   <div class="tab-pane" id="permissions">
+        {% with field=form.permissions %}
+        {% include "master/field_snippet.html" %}
+        {% endwith %}
+      </div>
+      {% endif %}
+
+
+     {% if form2 %}
+     
+        <div class="tab-pane{% if password_tab %} active{% endif %}" id="password">
+            <form id="form2" action="{{ module_url }}/set_password/{{ object.id}}/" method="POST">
+            {% csrf_token %}
+                      
+            {% with form=form2 %}
+            {% include "master/message.error.html" %}
+            {% include "master/form_snippet.html" %}
+            {% endwith %}
+                      
+            <div class="form-actions">
+                <input type="submit" class="btn btn-success" value="Alterar senha" >
+            </div>
+                      
+        </form>    
+    {% endif %}
+    
+    </div>
+
+{% endblock %}
