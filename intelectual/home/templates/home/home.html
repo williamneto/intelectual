@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/home.css">
+{% endblock %}
+
+{% block header %}
+	<div class="logo"><h1>Intelectual</h1></div>
+	<div class="search_box"><input type="text" id="search_text"><button id="search_input">&nbsp;</button></div>
+{% endblock %}
+
+{% block content %}
+	<div id="separator"><hr></div>
+	<div class="showcase">
+		<span id="left_arrow"></span>
+		<div class="display"></div>
+		</span id="right_arrow">
+	</div>
+	
+	<div class="catgories">
+		<!- CATEGORIES HERE ->
+	</div>
+	
+	<div class="recommendations">
+	</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+#header{
+	padding-left: 35px;
+	padding-right: 35px;
+}
+.footer{
+	position: absolute;
+	bottom: 0px;
+}
+.search_box{
+	position: absolute;
+	right: 35px;
+	top: 0px;
+	padding-top: 20px;
+}
+
+.showcase{
+	position: absolute;
+	border: 5px solid black;
+	width: 550px;
+	height: 250px;
+	left: 30%;
+}

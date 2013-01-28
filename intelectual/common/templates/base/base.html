@@ -3,18 +3,20 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>{% block title %}{% endblock %} - Intelectual</title>
-		<!- MAIN CSS HERE -->
 		{% block css %}
 		{% endblock %}
 		
-		<!- MAIN JAVASCRIPT HERE>
 		{% block js %}
 		{% endblock %}
 	</head>
 	<body>
+	<div id="header">
 	{% block header %}{% endblock %}
+	</div>
 	
+	<div id="content">
 	{% block content %}{% endblock %}
+	</div>
 	
 	<div class="footer">
 		{% if user %}
