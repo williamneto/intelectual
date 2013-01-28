@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
 
+from views import HomeView
+
 urlpatterns = patterns('',
-	url(r'^auth/', include('intelectual.accounts.urls')),
-	url(r'^$', include('intelectual.home.urls'))
+	url(r'^$', HomeView.as_view())
 )

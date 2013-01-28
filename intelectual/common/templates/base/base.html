@@ -3,8 +3,16 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>{% block title %}{% endblock %} - Intelectual</title>
+		<!- MAIN CSS HERE -->
+		{% block css %}
+		{% endblock %}
+		
+		<!- MAIN JAVASCRIPT HERE>
+		{% block js %}
+		{% endblock %}
 	</head>
 	<body>
+	{% block header %}{% endblock %}
 	
 	{% block content %}{% endblock %}
 	

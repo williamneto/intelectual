@@ -96,7 +96,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'intelectual.accounts',
-    'intelectual.common'
+    'intelectual.common',
+    'intelectual.home'
 )
 
 
