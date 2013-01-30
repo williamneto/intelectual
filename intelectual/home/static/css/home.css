@@ -1,6 +1,16 @@
 #header{
+	margin: -10px;
+	display: block;
 	padding-left: 35px;
 	padding-right: 35px;
+	
+	background-image: url('/static/img/header_background.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+#header h1{
+	font-size: 40pt;
+	display: inline;
 }
 .footer{
 	position: absolute;

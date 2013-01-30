@@ -1,0 +1,8 @@
+@font-face{
+	font-family: bellerose;
+	src: url('/static/fonts/Bellerose.ttf')
+}
+
+body{
+	font-family: bellerose;
+}
