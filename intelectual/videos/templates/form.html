@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+{% block title %}adicionar video{% endblock %}
+
+{% block content %}
+<h1>adicionar video</h1>
+<div class="errors">
+</div>
+<form method="POST" action=".">
+{% csrf_token %}
+	<table>
+		{% for field in form %}
+		{% if field.errors %}
+			{% for error in field.errors %}
+			<tr>
+				<td><b>{{ field.label }}</b></td>
+				<td><b>{{ error|escape }}</b></td>
+			</tr>
+			{% endfor %}
+		{% endif %}
+		<tr>
+			<td>{{ field.label }}</td>
+			<td>{{ field }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	<input type="submit" value="Adicionar">
+</form>
+{% endblock %}

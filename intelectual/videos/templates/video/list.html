@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+
+{% block title %}videos{% endblock %}
+
+{% block content %}
+<h1>videos</h1>
+<a href="add/">adicionar</a>
+<table border="1" style="text-align: left">
+	<tr>
+		<th width="200px">Titulo</th>
+		<th width="200px">Categoria</th>
+		<th width="200px">Youtuber</th>
+		
+	</tr>
+	
+	{% for object in object_list %}
+	<tr>
+		<td><a href="{{ object.chanel }}">{{ object.yt_user }}</a></td>
+		<td><a href="/admin/categorias/{{ object.pk }}/">{{ object.categoria }}</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

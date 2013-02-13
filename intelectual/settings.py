@@ -97,7 +97,10 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'intelectual.accounts',
     'intelectual.common',
-    'intelectual.home'
+    'intelectual.admin',
+    'intelectual.videos',
+    'intelectual.categorias',
+    'intelectual.youtubers',
 )
 
 
