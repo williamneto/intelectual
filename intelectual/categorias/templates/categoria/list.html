@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+
+{% block title %}categoria{% endblock %}
+
+{% block content %}
+<h1>categorias</h1>
+
+<a href="add/">Adicionar</a>
+<table border="1" style="text-align: left">
+	<tr>
+		<th width="200px">Nome</th>
+		<th width="250px">Descrição</th>
+		<th></th>
+	</tr>
+	{% for object in object_list %}
+	<tr>
+		<td>{{ object.nome }}</td>
+		<td>{{ object.descricao }}</td>
+		<td><a href="{{ object.pk }}/">Visualizar/Editar</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

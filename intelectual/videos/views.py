@@ -9,7 +9,7 @@ class AddVideoView(CreateView):
 	model = Video
 	form_class = AddVideoForm
 	template_name = "form.html"
-	success_url = "/admin/add_video/"
+	success_url = "/admin/video/add/"
 
 class ListVideoView(ListView):
 	document = Video

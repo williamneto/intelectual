@@ -10,7 +10,7 @@ class AddYoutuberView(CreateView):
 	document = Youtuber
 	form_class = AddYoutuberForm
 	template_name = "youtuber/form.html"
-	success_url = "/admin/add_youtuber/"
+	success_url = "/admin/youtuber/add/"
 
 class ListYoutuberView(ListView):
 	document = Youtuber

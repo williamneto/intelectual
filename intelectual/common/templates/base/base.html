@@ -20,7 +20,10 @@
 	
 	<div class="footer">
 		{% if user %}
+		<br><br>
 		Logado como - {{ user.username }}
+		<br><br>
+		<a href="/admin/">Inicio</a>
 		{% endif %}
 	</body>
 </html>
