@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% block title %}<title>Noetic - Youtube intelectual</title>{% endblock %}
+	
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css" type="text/css" media="screen">
+		<!--[if lt IE 7]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="{{ STATIC_URL }}js/html5.js"></script>
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/ie.css" type="text/css" media="screen">
+		<![endif]-->
+		
+		{% include "base/javascripts_base.html" %}
+		
+		{% block header %}{% endblock %}
+	</head>
+	
+	<body background="#000" id="page1">
+		<div class="bg">
+			<div class="main">
+				<header>
+					<div id="topo">
+			  			<p>&nbsp; </p>
+			  			<p><img src="{{ STATIC_URL }}img/logo.png" width="257" height="43" class="logo_topo" style="margin-left: 70px;"/></p>
+			 			<p>&nbsp;</p>
+					</div>
+				</header>
+				
+				<section id="content">
+					<center>
+						<p><center><img src="{{ STATIC_URL }}img/videos populares_barra.png" width="1000" height="18"></center></p>
+						{% block content %}{% endblock %}
+					</center>
+				</section>
+				
+			</div>
+		</div>
+	</div>
+	
+	
+</html>
