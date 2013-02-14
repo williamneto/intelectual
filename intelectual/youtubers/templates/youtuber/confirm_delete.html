@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+
+{% block title %}apagar youtuber{% endblock %}
+
+{% block content %}
+<h1>apagar youtuber</h1>
+
+<form action="." method="POST">
+{% csrf_token %}
+Confirma a exclusão deste youtuber ? - {{ object.yt_user }}
+<br>
+<input type="button" onclick="history.go(-1)" value="Não" />
+<input type="submit" value="Sim" />
+</form>
+{% endblock %}

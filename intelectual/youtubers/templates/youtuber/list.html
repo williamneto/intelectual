@@ -9,12 +9,16 @@
 	<tr>
 		<th width="200px">Youtube user</th>
 		<th width="200px">Categoria</th>
+		<th></th>
+		<th></th>
 	</tr>
 	
 	{% for object in object_list %}
 	<tr>
 		<td><a href="{{ object.chanel }}">{{ object.yt_user }}</a></td>
-		<td><a href="/admin/categorias/{{ object.pk }}/">{{ object.categoria }}</a></td>
+		<td><a href="/admin/categorias/{{ object.categoria.pk }}/">{{ object.categoria }}</a></td>
+		<td><a href="{{ object.pk }}/">Editar/Visualizar</a></td>
+		<td><a href="delete/{{ object.pk }}/">Excluir</a></td>		
 	</tr>
 	{% endfor %}
 </table>

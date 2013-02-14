@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+
+{% block title %}apagar video{% endblock %}
+
+{% block content %}
+<h1>apagar video</h1>
+
+<form action="." method="POST">
+{% csrf_token %}
+Confirma exclusão deste video? - {{ object.titulo }}
+<br>
+<input type="button" onclick="history.go(-1)" value="Não" />
+<input type="submit" value="Sim" />
+</form>
+{% endblock %}

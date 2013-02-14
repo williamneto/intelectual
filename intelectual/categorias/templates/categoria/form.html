@@ -1,8 +1,12 @@
 {% extends "base/base.html" %}
-{% block title %}adicionar categoria{% endblock %}
+{% block title %}{% if object %}editar categoria{% else %}adicionar categoria{% endif %}{% endblock %}
 
 {% block content %}
+{% if object %}
+<h1>editar categoria</h1>
+{% else %}
 <h1>adicionar categoria</h1>
+{% endif %}
 <div class="errors">
 </div>
 <form method="POST" action=".">
@@ -24,6 +28,6 @@
 		{% endfor %}
 	</table>
 	
-	<input type="submit" value="Adicionar">
+	<input type="submit" value="Salvar">
 </form>
 {% endblock %}

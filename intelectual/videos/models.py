@@ -7,7 +7,7 @@ from intelectual.youtubers.models import Youtuber
 class Video(Document):
 	yt_id = StringField(
 		required=True,
-		max_length=10,
+		max_length=30,
 		verbose_name="ID do YouTube"
 	)
 	
