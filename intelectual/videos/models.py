@@ -4,6 +4,8 @@ from mongoengine import *
 from intelectual.categorias.models import Categoria
 from intelectual.youtubers.models import Youtuber
 
+from gdata.youtube.service import YouTubeService
+
 class Video(Document):
 	yt_id = StringField(
 		required=True,
@@ -13,8 +15,7 @@ class Video(Document):
 	
 	titulo = StringField(
 		required=True,
-		max_length=50,
-		verbose_name="Título"
+		max_length=300
 	)
 	
 	categoria = ReferenceField(
@@ -27,11 +28,6 @@ class Video(Document):
 		Youtuber,
 		dbref=True,
 		required=False
-	)
-	
-	views = IntField(
-		required=True,
-		default=0
 	)
 	
 	@property
@@ -56,5 +52,19 @@ class Video(Document):
 	
 	def get_iframe(self):
 		return "<iframe width=\"180\" height=\"160\" src=\"%s\" frameborder=\"0\" allowfullscreen></iframe>" % self.iframe_url
+	
+	def to_json(self):
+		data = {
+			'titulo': self.titulo,
+			'url': self.youtube_url,
+			'iframe': self.get_iframe(),
+			'thumbnail': self.thumbnail_full_size,
+			'youtube_url': self.youtube_url
+		}
+		
+		if self.youtuber:
+			data['youtuber'] = self.youtuber.yt_user
+		
+		return data
 
 

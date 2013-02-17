@@ -9,6 +9,9 @@
 {% endif %}
 <div class="errors">
 </div>
+<p>
+	<h4><a href="/admin/categorias/videos/{{ object.pk }}/">videos desta categoria</a></h4>
+</p>
 <form method="POST" action=".">
 {% csrf_token %}
 	<table>

@@ -9,14 +9,14 @@
 <table border="1" style="text-align: left">
 	<tr>
 		<th width="200px">Nome</th>
-		<th width="250px">Descrição</th>
+		<th>Videos</th>
 		<th></th>
 		<th></th>
 	</tr>
 	{% for object in object_list %}
 	<tr>
 		<td>{{ object.nome }}</td>
-		<td>{{ object.descricao }}</td>
+		<td><a href="videos/{{ object.pk }}/">{{ object.num_videos }}</a></td>
 		<td><a href="{{ object.pk }}/">Visualizar/Editar</a></td>
 		<td><a href="delete/{{ object.pk }}/">Deletar</a></td>
 	</tr>

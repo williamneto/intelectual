@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+
+{% block title %}videos - {{ categoria }}{% endblock %}
+
+{% block content %}
+<h1>videos - {{ categoria }}</h1>
+<a href="add/">adicionar</a>
+<table border="1" style="text-align: left">
+	<tr>
+		<th width="200px">Titulo</th>
+		<th width="200px">Youtuber</th>
+		<th></th>
+		<th></th>
+		
+	</tr>
+	
+	{% for object in object_list %}
+	<tr>
+		<td><a href="{{ object.youtube_url }}" target="_blank">{{ object.titulo }}</a></td>
+		<td>{% if object.youtuber %}<a href="/admin/youtubers/{{ object.youtuber.pk }}">{{ object.youtuber }}</a>{% else %} --- {% endif %}</td>
+		<td><a href="{{ object.pk }}/">Editar/Visualizar</a></td>
+		<td><a href="delete/{{ object.pk }}/">Excluir</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}
