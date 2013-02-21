@@ -8,6 +8,7 @@ from django.utils import simplejson
 
 from intelectual.videos.models import Video
 from intelectual.categorias.models import Categoria
+from intelectual.common.constants import BOTOES_IMAGENS
 
 class HomePageView(TemplateView):
 	template_name = "home_page.html"
@@ -16,7 +17,7 @@ class HomePageView(TemplateView):
 	def _get_initial_wall(self):
 		categorias = Categoria.objects.all()
 		
-		categorias_videos = {}
+		categorias_videos = []
 		for categoria in categorias:
 			videos = Video.objects.filter(categoria=categoria)
 			
@@ -27,8 +28,15 @@ class HomePageView(TemplateView):
 			for video in videos:
 				video = video.to_json()
 				videos_json.append(video)
+			
+			json = [{
+			    'nome': categoria.nome,
+			    'id': str(categoria.pk),
+			    'videos': videos_json,
+			    'botao_imagem': BOTOES_IMAGENS[categoria.nome]
+			 }]
 							
-			categorias_videos[categoria.nome] = videos_json
+			categorias_videos.append(json)
 		
 		return HttpResponse(simplejson.dumps(categorias_videos), content_type="application/json")
 		

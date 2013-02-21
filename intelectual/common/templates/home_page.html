@@ -1,1 +1,40 @@
 {% extends "base/home_page_base.html" %}
+
+{% block header %}
+	<script src="{{ STATIC_URL }}js/home_scripts.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div class="wall">
+		<table>
+			<tr>
+				<td>
+					<img src="{{ STATIC_URL }}img/seta_left.png" class="seta" id="action_previous">
+				</td>
+				<td>
+					<div id="video_inicial_container">
+		
+					</div>
+				</td>
+				<td>
+					<img src="{{ STATIC_URL}}img/seta_right.png" class="seta" id="action_next">
+				</td>
+			</tr>
+		</table>
+		<div class="botoes" id="botoes_containter">
+			<script type="text/html" class="buttons" id="botoes_template">
+				<center>
+				<table>
+				<tr>
+				<% _.each(categorias, function(categoria){ %>
+				<td class="botao_categoria_container" id="<%= categoria.id %>_action">
+				<img class="botao_imagem" id="<%= categoria.index %>" src="<%= categoria.botao_imagem %>"></img>
+				</td>
+				<% }) %>
+				</tr>
+				</table>
+				</center>
+			</script>
+		</div>
+	</div>
+{% endblock %}

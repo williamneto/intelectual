@@ -51,14 +51,14 @@ class Video(Document):
 		return "http://www.youtube.com/embed/" + self.yt_id
 	
 	def get_iframe(self):
-		return "<iframe width=\"180\" height=\"160\" src=\"%s\" frameborder=\"0\" allowfullscreen></iframe>" % self.iframe_url
+		return "<iframe width=\"640\" height=\"375\" src=\"%s\" frameborder=\"0\" allowfullscreen></iframe>" % self.iframe_url
 	
 	def to_json(self):
 		data = {
 			'titulo': self.titulo,
 			'url': self.youtube_url,
 			'iframe': self.get_iframe(),
-			'thumbnail': self.thumbnail_full_size,
+			'thumbnail': self.thumbnail_default,
 			'youtube_url': self.youtube_url
 		}
 		

@@ -196,7 +196,6 @@ h6 {color:#0f0f0f;font-weight:normal;margin-bottom:5px}
 dl.address {line-height:24px;color:#9d9d9d}
 dl.address span {float:left;width:74px;color:#fefefe}
 dl.contact {line-height:20px;color:#9d9d9d}
-dl.contact span {display:block;color:#0f0f0f}
 dl.contact dt, dl.contact dd {margin-bottom:5px}
 .tdate-1 {font-size:20px;line-height:1.2em;color:#0f0f0f;text-align:center;letter-spacing:-2px;margin:-8px 16px 0 0}
 .tdate-1 strong {display:block;font-size:49px;line-height:1.2em;color:#00a9ff;margin-bottom:-10px}
@@ -224,3 +223,31 @@ footer {width:100%;}
 .logo_topo{
 	margin-left: 70px;
 }
+
+.wall{
+	width: 80%;
+	height: 450px;
+	padding: 20px;
+}
+.botoes{
+	position: relative;
+	bottom: -50px;
+	padding: 5px;
+	width: 100%;
+	height: 80px;
+	text-align: center;
+}
+.botao_imagem{
+	cursor: pointer;
+}
+.botao_categoria_container{
+	display: inline;
+}
+.seta{
+	cursor: pointer;
+}
+
+
+
+
+
