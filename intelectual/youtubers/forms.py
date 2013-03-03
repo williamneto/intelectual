@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-
-from mongotools.forms import MongoForm
+from django.forms import ModelForm
 
 from .models import Youtuber
 
-class AddYoutuberForm(MongoForm):
+class AddYoutuberForm(ModelForm):
 	class Meta:
-		document = Youtuber
+		model = Youtuber

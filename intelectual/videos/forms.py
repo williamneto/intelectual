@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-
-from mongotools.forms import *
+from django.forms import ModelForm
 
 from .models import Video
 
 from gdata.youtube.service import YouTubeService
 
-class AddVideoForm(MongoForm):	
+class AddVideoForm(ModelForm):	
 	class Meta:
-		document = Video
+		model = Video
 		exclude = ("views", "titulo")
 	
 	def save(self, *args, **kwargs):

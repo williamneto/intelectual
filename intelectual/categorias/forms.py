@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from mongotools.forms import *
+from django.forms import ModelForm
 
 from .models import Categoria
 
-class AddCategoriaForm(MongoForm):
+class AddCategoriaForm(ModelForm):
 	class Meta:
-		document = Categoria
+		model = Categoria
 		

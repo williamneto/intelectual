@@ -29,14 +29,22 @@
 				<header>
 					<div id="topo">
 			  			<p>&nbsp; </p>
-			  			<p><img src="{{ STATIC_URL }}img/logo.png" width="257" height="43" class="logo_topo" style="margin-left: 70px;"/></p>
+			  			<p>
+			  			    
+			  			    <img src="{{ STATIC_URL }}img/logo.png" width="257" height="43" class="logo_topo" style="margin-left: 70px;"/>
+			  			    
+			  			</p>
 			 			<p>&nbsp;</p>
 					</div>
 				</header>
 				
 				<section id="content">
 					<center>
-						<p><center><img src="{{ STATIC_URL }}img/videos populares_barra.png" width="1000" height="18"></center></p>
+						    <center>
+						        <img src="{{ STATIC_URL }}img/seta_left_2.png" class="change_wall_action" id="previous_wall_action">
+						        <img src="{{ STATIC_URL }}img/videos populares_barra.png" width="1000" height="18">
+						        <img src="{{ STATIC_URL }}img/seta_right_2.png" class="change_wall_action" id="next_wall_action">
+						      </center>
 						{% block content %}{% endblock %}
 					</center>
 				</section>

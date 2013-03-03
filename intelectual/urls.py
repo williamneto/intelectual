@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
 
-from .views import HomePageView
+from intelectual.home.views import HomePageView
 
 urlpatterns = patterns('',
 	url(r'^$', HomePageView.as_view()),

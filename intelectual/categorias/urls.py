@@ -6,9 +6,9 @@ from .views import AddCategoriaView, ListCategoriaView, UpdateCategoriaView, Del
 
 urlpatterns = patterns('',
 	url(r'^$', login_required(ListCategoriaView.as_view())),
-	url(r'^add/', login_required(AddCategoriaView.as_view())),
-	url(r'^(?P<pk>\w{24})/$', login_required(UpdateCategoriaView.as_view())),
-	url(r'^delete/(?P<pk>\w{24})/$', login_required(DeleteCategoriaView.as_view())),
-	url(r'^videos/(?P<pk>\w{24})/$', login_required(CategoriaVideosView.as_view()))
+	url(r'^add/$', login_required(AddCategoriaView.as_view())),
+	url(r'^(?P<pk>\d+)/$', login_required(UpdateCategoriaView.as_view())),
+	url(r'^delete/(?P<pk>\d+)/$', login_required(DeleteCategoriaView.as_view())),
+	url(r'^videos/(?P<pk>\d+)/$', login_required(CategoriaVideosView.as_view()))
 	
 )

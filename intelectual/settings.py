@@ -17,14 +17,17 @@ MONGODB_HOST = 'localhost'
 MONGODB_USERNAME = None
 MONGODB_PASSWORD = None
 
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '', 
-        'USER': '',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'intelectual', 
+        'USER': 'intelectual',
+        'PASSWORD': 'root',
         'HOST': '',
-        'PORT': '', 
     }
 }
 
@@ -101,6 +104,7 @@ INSTALLED_APPS = (
     'intelectual.videos',
     'intelectual.categorias',
     'intelectual.youtubers',
+    'intelectual.home'
 )
 
 

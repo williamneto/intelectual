@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from mongotools.views import CreateView, ListView, UpdateView, DeleteView
-
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 from .models import Categoria
 from .forms import AddCategoriaForm
@@ -8,8 +8,8 @@ from .forms import AddCategoriaForm
 from intelectual.videos.models import Video
 
 class ListCategoriaView(ListView):
-	document = Categoria
-	template_name = "categoria/list.html"
+    model = Categoria
+    template_name = "categoria/list.html"
 
 class AddCategoriaView(CreateView):
 	model = Categoria
@@ -18,13 +18,13 @@ class AddCategoriaView(CreateView):
 	success_url = "/admin/categorias/add/"
 
 class UpdateCategoriaView(UpdateView):
-	document = Categoria
+	model = Categoria
 	form_class = AddCategoriaForm
 	template_name = "categoria/form.html"
 	success_url = "/admin/categorias/"
 
 class DeleteCategoriaView(DeleteView):
-	document = Categoria
+	model = Categoria
 	success_url = "/admin/categorias/"
 
 class CategoriaVideosView(ListView):

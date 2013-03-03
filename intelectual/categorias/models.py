@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-from mongoengine import *
+from django.db import models
 
 import intelectual.videos.models
 
-class Categoria(Document):
-	nome = StringField(
-		required=True,
+class Categoria(models.Model):
+	nome = models.CharField(
+		blank=False,
 		max_length=50
 	)
 	
@@ -20,4 +20,4 @@ class Categoria(Document):
 		return num_videos
 	
 	def __unicode__(self):
-		return self.nome
+		return self.nome            

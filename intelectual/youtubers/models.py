@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from mongoengine import *
+from django.db import models
 
-class Youtuber(Document):
-	yt_user = StringField(
-		required=True,
+class Youtuber(models.Model):
+	yt_user = models.CharField(
+		blank=False,
 		verbose_name="YouTube username",
 		max_length=50
 	)
@@ -14,3 +14,9 @@ class Youtuber(Document):
 	
 	def __unicode__(self):
 		return self.yt_user
+	
+	def to_json(self):
+	    data = {
+            'yt_user': self.yt_user,
+            'chanel': self.chanel
+        };return data

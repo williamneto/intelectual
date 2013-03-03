@@ -1,0 +1,61 @@
+.wall{
+	width: 80%;
+	height: 450px;
+	padding: 20px;
+}
+.botoes{
+	position: relative;
+	bottom: -50px;
+	padding: 5px;
+	width: 100%;
+	height: 80px;
+	text-align: center;
+}
+.botao_imagem{
+	cursor: pointer;
+}
+.botao_categoria_container{
+	display: inline;
+}
+.seta{
+	cursor: pointer;
+}
+.change_wall_action{
+	margin-top: -12px;
+	cursor: pointer;
+}
+#mosaic_wall{
+	margin-left: 20px;
+}
+.mosaic_image{
+	border-radius: 3px;
+	position: relative;
+	margin: 4px;
+	cursor: pointer;
+}
+.mosaic_image_container{
+	display: inline;
+	float: left;
+	background-color: #e1e1e1;
+	margin: 10px;
+	padding: 10px;
+	width: 270px;
+	height: 220px;
+	text-align: left;
+	box-shadow: 5px 4px 10px #333, -5px -5px 10px #ccc;
+}
+.mosaic_image_container p{
+	font-size: 12pt;
+	line-height: 1.0;
+	width: 270px;
+	text-align: left;
+}
+.mosaic_image_label{
+	font-size: 15pt;
+	
+}
+
+
+
+
+

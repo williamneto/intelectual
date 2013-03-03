@@ -1,33 +1,31 @@
 # -*- coding: utf-8 -*-
-from mongoengine import *
+from django.db import models
 
 from intelectual.categorias.models import Categoria
 from intelectual.youtubers.models import Youtuber
 
 from gdata.youtube.service import YouTubeService
 
-class Video(Document):
-	yt_id = StringField(
-		required=True,
+class Video(models.Model):
+	yt_id = models.CharField(
+		blank=False,
 		max_length=30,
 		verbose_name="ID do YouTube"
 	)
 	
-	titulo = StringField(
-		required=True,
+	titulo = models.CharField(
+		blank=False,
 		max_length=300
 	)
 	
-	categoria = ReferenceField(
+	categoria = models.ForeignKey(
 		Categoria,
-		dbref=True,
-		required=True
+		blank=False
 	)
 	
-	youtuber = ReferenceField(
+	youtuber = models.ForeignKey(
 		Youtuber,
-		dbref=True,
-		required=False
+		blank=False
 	)
 	
 	@property
@@ -59,11 +57,12 @@ class Video(Document):
 			'url': self.youtube_url,
 			'iframe': self.get_iframe(),
 			'thumbnail': self.thumbnail_default,
-			'youtube_url': self.youtube_url
+			'youtube_url': self.youtube_url,
+			'categoria': self.categoria.nome
 		}
 		
 		if self.youtuber:
-			data['youtuber'] = self.youtuber.yt_user
+			data['youtuber'] = self.youtuber.to_json()
 		
 		return data
 

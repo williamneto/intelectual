@@ -8,7 +8,8 @@ from django.utils import simplejson
 
 from intelectual.videos.models import Video
 from intelectual.categorias.models import Categoria
-from intelectual.common.constants import BOTOES_IMAGENS
+
+from .constants import BOTOES_IMAGENS
 
 class HomePageView(TemplateView):
 	template_name = "home_page.html"
@@ -38,8 +39,7 @@ class HomePageView(TemplateView):
 							
 			categorias_videos.append(json)
 		
-		return HttpResponse(simplejson.dumps(categorias_videos), content_type="application/json")
-		
+		return HttpResponse(simplejson.dumps(categorias_videos), content_type="application/json") 
 	
 	def get(self, *args, **kwargs):
 		cmd = self.request.GET.get('cmd')

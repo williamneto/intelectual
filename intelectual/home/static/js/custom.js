@@ -82,20 +82,3 @@ $.Setup = function(){
 		}
 	)	
 }
-
-$(document).ready(function(){
-	$.Setup();
-	
-	$("#action_previous").click(function(){
-		$.PreviousWallVideo();
-	});
-	
-	$("#action_next").click(function(){
-		$.NextWallVideo();
-	});
-});
-
-$(document).delegate("img.botao_imagem", "click", function(){
-	index = this.id;	
-	$.SetCategoriaWall(parseInt(index));
-});

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
-from mongotools.views import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 from .models import Video
 from .forms import AddVideoForm
@@ -12,17 +12,17 @@ class AddVideoView(CreateView):
 	success_url = "/admin/videos/add/"
 
 class UpdateVideoView(UpdateView):
-	document = Video
+	model = Video
 	form_class = AddVideoForm
 	template_name = "video/form.html"
 	success_url = "/admin/videos/"
 
 class ListVideoView(ListView):
-	document = Video
+	model = Video
 	template_name = "video/list.html"
 
 class DeleteVideoView(DeleteView):
-	document = Video
+	model = Video
 	success_url = "/admin/videos/"
 	
 	

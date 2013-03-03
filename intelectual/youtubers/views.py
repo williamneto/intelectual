@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
-
-from mongotools.views import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 from intelectual.youtubers.models import Youtuber
 
 from .forms import AddYoutuberForm
 
 class UpdateYoutuberView(UpdateView):
-	document = Youtuber
+	model = Youtuber
 	form_class = AddYoutuberForm
 	success_url = "/admin/youtubers/"
 
 class AddYoutuberView(CreateView):
-	document = Youtuber
+	model = Youtuber
 	form_class = AddYoutuberForm
 	template_name = "youtuber/form.html"
 	success_url = "/admin/youtubers/add/"
 
 class ListYoutuberView(ListView):
-	document = Youtuber
+	model = Youtuber
 	template_name = "youtuber/list.html"
 	
 class DeleteYoutuberView(DeleteView):
-	document = Youtuber
+	model = Youtuber
 	success_url = "/admin/youtubers/"
