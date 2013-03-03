@@ -6,9 +6,9 @@ from django.contrib.sites.models import get_current_site
 from django.template import Context, loader
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from mongotools.forms import MongoForm
+from django.forms import ModelForm
 
-from models import User
+from django.contrib.auth.models import User
 
 def base36encode(number):
     if not isinstance(number, (int, long)):
@@ -25,7 +25,7 @@ def base36encode(number):
     
     return base36 or aphabet[0]
 
-class UserCreationForm(MongoForm):
+class UserCreationForm(ModelForm):
     """
     Formulário de Criação de usuário.
     possui senha e senha de confirmação
@@ -71,10 +71,10 @@ class UserCreationForm(MongoForm):
         return user
 
     class Meta:
-        document = User
+        model = User
         fields = ("username",)
 
-class UserChangeForm(MongoForm):
+class UserChangeForm(ModelForm):
     """
     Formulário de Alteração do usuário
     """
@@ -83,7 +83,7 @@ class UserChangeForm(MongoForm):
         error_messages = {'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
 
     class Meta:
-        document = User
+        model = User
 
     def __init__(self, *args, **kwargs):
         super(UserChangeForm, self).__init__(*args, **kwargs)
@@ -252,7 +252,7 @@ class AdminPasswordChangeForm(forms.Form):
             self.user.save()
         return self.user
 
-class AccountForm(MongoForm):
+class AccountForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(AccountForm, self).__init__(*args, **kwargs)
 
@@ -261,4 +261,4 @@ class AccountForm(MongoForm):
 
     class Meta:
         fields = ('first_name', 'last_name', 'email')
-        document = User
+        model = User

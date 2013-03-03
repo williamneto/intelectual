@@ -28,7 +28,7 @@ DATABASES = {
 }
 
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+#DATABASES['default'] =  dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 TIME_ZONE = 'America/Sao_Paulo'
@@ -95,6 +95,8 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'django.contrib.sessions',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
@@ -136,8 +138,3 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/auth/login/'
 LOGOUT_URL = '/auth/logout/'
 
-AUTHENTICATION_BACKENDS = (
-    'intelectual.accounts.auth.MongoEngineBackend',
-)
-
-SESSION_ENGINE = 'mongoengine.django.sessions'
