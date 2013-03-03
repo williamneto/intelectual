@@ -18,17 +18,18 @@ MONGODB_USERNAME = None
 MONGODB_PASSWORD = None
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'intelectual', 
-        'USER': 'intelectual',
-        'PASSWORD': 'root',
-        'HOST': '',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'deaue2ajc0vgnh',
+    'HOST': 'ec2-23-21-85-197.compute-1.amazonaws.com',
+    'PORT': 5432,
+    'USER': 'jxsmvklgnwogvr',
+    'PASSWORD': '9bZtDXQ489VBauR--3M3w34lSF'
+  }
 }
 
 import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 TIME_ZONE = 'America/Sao_Paulo'
