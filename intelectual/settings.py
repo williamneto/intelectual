@@ -17,10 +17,6 @@ MONGODB_HOST = 'localhost'
 MONGODB_USERNAME = None
 MONGODB_PASSWORD = None
 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -30,6 +26,10 @@ DATABASES = {
         'HOST': '',
     }
 }
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 TIME_ZONE = 'America/Sao_Paulo'
 LANGUAGE_CODE = 'pt-BR'
