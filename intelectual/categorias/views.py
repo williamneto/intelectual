@@ -26,6 +26,7 @@ class UpdateCategoriaView(UpdateView):
 class DeleteCategoriaView(DeleteView):
 	model = Categoria
 	success_url = "/admin/categorias/"
+	template_name = "categoria/confirm_delete.html"
 
 class CategoriaVideosView(ListView):
 	template_name = "categoria/categoria_videos.html"

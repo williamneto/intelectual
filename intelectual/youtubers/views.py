@@ -24,3 +24,4 @@ class ListYoutuberView(ListView):
 class DeleteYoutuberView(DeleteView):
 	model = Youtuber
 	success_url = "/admin/youtubers/"
+	template_name = "youtuber/confirm_delete.html"
