@@ -24,5 +24,6 @@ class ListVideoView(ListView):
 class DeleteVideoView(DeleteView):
 	model = Video
 	success_url = "/admin/videos/"
+	template_name = "video/confirm_delete.html"
 	
 	
