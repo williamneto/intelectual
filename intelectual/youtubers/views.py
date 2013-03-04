@@ -10,6 +10,7 @@ class UpdateYoutuberView(UpdateView):
 	model = Youtuber
 	form_class = AddYoutuberForm
 	success_url = "/admin/youtubers/"
+	template_name = "youtuber/form.html"
 
 class AddYoutuberView(CreateView):
 	model = Youtuber
