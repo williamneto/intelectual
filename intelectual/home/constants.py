@@ -7,5 +7,6 @@ BOTOES_IMAGENS = {
     u"Política": "/static/img/botoes/BOTAO_POLITICA.png",
     u"Ciência e tecnologia": "/static/img/botoes/BOTAO_CIENCIAS.PNG",
     u"Química": "/static/img/botoes/BOTAO_QUIMICA.png",
-    u"Economia": "/static/img/botoes/BOTAO_ECONOMIA.png"
+    u"Economia": "/static/img/botoes/BOTAO_ECONOMIA.png",
+    u"Opiniões": ""
 }
