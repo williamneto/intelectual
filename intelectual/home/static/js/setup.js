@@ -75,7 +75,7 @@ function Setup(){
                 index = 0;
                 if (object.videos.length != 0){
                     if (index==0){
-                        index = object.videos.length;
+                        index = initial_wall.length;
                     }
                     categoria = {
                         'id': object.id,
