@@ -72,8 +72,11 @@ function Setup(){
             
             for (i=0; i < initial_wall.length; i++){
                 object = initial_wall[i][0];
-                
+                index = 0;
                 if (object.videos.length != 0){
+                    if (index==0){
+                        index = 1;
+                    }
                     categoria = {
                         'id': object.id,
                         'index': i,
@@ -83,7 +86,7 @@ function Setup(){
                     categorias.push(categoria)
                 }
             }
-            that.SetMainWall(0);
+            that.SetMainWall(index);
             that.SetButtons();
         });
 }
