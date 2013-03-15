@@ -75,7 +75,7 @@ function Setup(){
                 index = 0;
                 if (object.videos.length != 0){
                     if (index==0){
-                        index = 1;
+                        index = object.videos.length;
                     }
                     categoria = {
                         'id': object.id,
