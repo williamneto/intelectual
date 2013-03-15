@@ -54,12 +54,14 @@ function Setup(){
 	    videos = categoria_inicial.videos;
 			
 	    video_inicial = videos[0];
-	    video_iframe = $(video_inicial.iframe);
+	    if(video_inicial != undefined){
+	        video_iframe = $(video_inicial.iframe);
 	
-	    container = $("#video_inicial_container");
-	    container.hide();
-	    $("#video_inicial_container").html(video_iframe);
-	    container.fadeIn();
+	        container = $("#video_inicial_container");
+	        container.hide();
+	        $("#video_inicial_container").html(video_iframe);
+	        container.fadeIn();
+	    }
     }
     
     $.getJSON(
