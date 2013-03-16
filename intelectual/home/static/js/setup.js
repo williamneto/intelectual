@@ -68,6 +68,7 @@ function Setup(){
         ".",
         {"cmd": "get_initial_wall"},
         function(data){
+            
             initial_wall = data;
             
             for (i=0; i < initial_wall.length; i++){
@@ -88,5 +89,6 @@ function Setup(){
             }
             that.SetMainWall(index);
             that.SetButtons();
+            
         });
 }
