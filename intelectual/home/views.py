@@ -13,7 +13,24 @@ from .constants import BOTOES_IMAGENS
 
 class HomePageView(TemplateView):
 	template_name = "home_page.html"
-	get_services = ('get_initial_wall', )
+	get_services = ('get_initial_wall', 'query')
+	
+	def _query(self):
+	    categoria = self.request.GET.get('categoria', None)
+        term = self.request.GET.get('term', None)
+        
+        if categoria and not term:
+            """
+            Retorna todos os videos de uma categoria
+            """
+            categoria = Categoria.objects.get(pk=categoria)
+            videos = Videos.objects.filter(categoria=categoria)
+            
+            videos_list = []
+            for video in videos:
+                videos_list.append(video.to_json())
+            
+            return HttpResponse(simplejson.dumps(video_list), content_type="application/json")
 	
 	def _get_initial_wall(self):
 		categorias = Categoria.objects.all()
