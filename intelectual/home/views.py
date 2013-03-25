@@ -79,4 +79,3 @@ class HomePageView(TemplateView):
 			return getattr(self, '_%s' % cmd)()
 
 		return super(HomePageView, self).get(*args, **kwargs)
-
