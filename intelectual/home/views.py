@@ -3,7 +3,7 @@
 import random
 
 from django.views.generic import TemplateView
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.utils import simplejson
 
 from intelectual.videos.models import Video
@@ -55,9 +55,9 @@ class HomePageView(TemplateView):
   			
   			for video in videos:
   				videos_list.append(video.to_json())
-  				return HttpResponse(simplejson.dumps(video_list), content_type="application/json")
+  			return HttpResponse(simplejson.dumps(video_list), content_type="application/json")
   			
-  			return Http404
+  		raise Http404
 
 	def get(self, *args, **kwargs):
 		cmd = self.request.GET.get('cmd')
