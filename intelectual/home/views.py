@@ -55,7 +55,7 @@ class HomePageView(TemplateView):
   			
   			for video in videos:
   				videos_list.append(video.to_json())
-  			return HttpResponse(simplejson.dumps(video_list), content_type="application/json")
+  			return HttpResponse(simplejson.dumps(videos_list), content_type="application/json")
   			
   		raise Http404
 
