@@ -17,20 +17,20 @@ class HomePageView(TemplateView):
 	
 	def _query(self):
 	    categoria = self.request.GET.get('categoria', None)
-        term = self.request.GET.get('term', None)
-        
-        if categoria and not term:
-            """
-            Retorna todos os videos de uma categoria
-            """
-            categoria = Categoria.objects.get(pk=categoria)
-            videos = Videos.objects.filter(categoria=categoria)
-            
-            videos_list = []
-            for video in videos:
-                videos_list.append(video.to_json())
-            
-            return HttpResponse(simplejson.dumps(video_list), content_type="application/json")
+	    term = self.request.GET.get('term', None)
+	    
+	    if categoria and not term:
+	        """
+	        Retorna todos os videos de uma categoria
+	        """
+	        categoria = Categoria.objects.get(pk=categoria)
+	        videos = Videos.objects.filter(categoria=categoria)
+	        
+	        videos_list = []
+	        for video in videos:
+	            videos_list.append(video.to_json())
+	        
+	        return HttpResponse(simplejson.dumps(video_list), content_type="application/json")
         
         return Http404
 	
