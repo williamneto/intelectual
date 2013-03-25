@@ -13,7 +13,7 @@ from .constants import BOTOES_IMAGENS
 
 class HomePageView(TemplateView):
     template_name = "home_page.html"
-    get_services = ('get_initial_wall', 'query')
+    get_services = ('get_initial_wall', 'query', )
     
     def _get_initial_wall(self):
         categorias = Categoria.objects.all()
