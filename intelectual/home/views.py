@@ -49,7 +49,7 @@ class HomePageView(TemplateView):
   			Retorna todos os videos de uma categoria
   			"""
   			categoria = Categoria.objects.get(pk=categoria)
-  			videos = Videos.objects.filter(categoria=categoria)
+  			videos = Video.objects.filter(categoria=categoria)
   			
   			videos_list = []
   			
