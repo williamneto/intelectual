@@ -30,8 +30,7 @@ class HomePageView(TemplateView):
 	        for video in videos:
 	            videos_list.append(video.to_json())
 	        
-	        return HttpResponse(simplejson.dumps(video_list), content_type="application/json")
-        
+	        return HttpResponse(simplejson.dumps(video_list), content_type="application/json")        
         return Http404
 	
 	def _get_initial_wall(self):
