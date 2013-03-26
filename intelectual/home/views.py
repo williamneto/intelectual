@@ -64,7 +64,7 @@ class HomePageView(TemplateView):
 	            categoria = Categoria.objects.get(pk=categoria)
 	            videos = Video.objects.filter(categoria=categoria)
 	
-	            videos = videos.filter(nome__icontains=term)
+	            videos = videos.filter(titulo__icontains=term)
 	
 	            videos_list = []
 	            for video in videos:
