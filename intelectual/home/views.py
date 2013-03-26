@@ -57,21 +57,21 @@ class HomePageView(TemplateView):
   				videos_list.append(video.to_json())
   			return HttpResponse(simplejson.dumps(videos_list), content_type="application/json")
         
-        if categoria and term:
-            """
-            Pesquisa por um videos em uma categoria
-            """
-            categoria = Categoria.objects.get(pk=categoria)
-            videos = Video.objects.filter(categoria=categoria)
-
-            videos = videos.filter(nome__icontains=term)
-
-            videos_list = []
-            for video in videos:
-                videos_list.append(video.to_json)
-            return HttpResponse(simplejson.dumps(videos_list), content_type="application/json")
-
-        raise Http404
+	        if categoria and term:
+	            """
+	            Pesquisa por um videos em uma categoria
+	            """
+	            categoria = Categoria.objects.get(pk=categoria)
+	            videos = Video.objects.filter(categoria=categoria)
+	
+	            videos = videos.filter(nome__icontains=term)
+	
+	            videos_list = []
+	            for video in videos:
+	                videos_list.append(video.to_json)
+	            return HttpResponse(simplejson.dumps(videos_list), content_type="application/json")
+	
+	        raise Http404
 
 	def get(self, *args, **kwargs):
 		cmd = self.request.GET.get('cmd')
