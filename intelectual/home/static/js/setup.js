@@ -22,7 +22,7 @@ function Setup(){
         var wall = _instance.getWallList();
         var i = _instance.getWallIndex();        
         
-        if (i <= wall.length()){
+        if (i <= wall.length){
             var video = wall[i];
             
             video_inicial_container = $("#video_inicial_container");
