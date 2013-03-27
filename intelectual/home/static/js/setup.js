@@ -28,9 +28,15 @@ function Setup(){
         video_inicial_container.html(video_iframe);
     }
     this.next = function(){
-        var i = _instance.getWallIndex();
-        i += 1;
-        _instance.setWallIndex(i);
+        var i = _instance.getWallIndex() + 1;
         
+        _instance.setWallIndex(i);      
+        _instance.show();
+    }
+    this.prev = function(){
+        var i = _instance.getWallIndex() - 1;
+        
+        _instance.setWallIndex(i);      
+        _instance.show();
     }
 }
