@@ -16,30 +16,16 @@ class HomePageView(TemplateView):
 	get_services = ('get_initial_wall', 'query', )
 
 	def _get_initial_wall(self):
-		categorias = Categoria.objects.all()
-
-		categorias_videos = []
+		categorias = Categoria.objects.all()		
+		videos = []
 		for categoria in categorias:
 			videos = Video.objects.filter(categoria=categoria)
 
-			if len(videos) > 4:
-				videos = random.sample(videos, 4)
+			if len(videos) > 0:
+			    video = random.sample(videos, 1)            
+			videos.append(video.to_json())
 
-			videos_json = []
-			for video in videos:
-				video = video.to_json()
-				videos_json.append(video)
-
-			json = [{
-			    'nome': categoria.nome,
-			    'id': str(categoria.pk),
-			    'videos': videos_json,
-			    'botao_imagem': BOTOES_IMAGENS[categoria.nome]
-			 }]
-
-			categorias_videos.append(json)
-
-		return HttpResponse(simplejson.dumps(categorias_videos), content_type="application/json") 
+		return HttpResponse(simplejson.dumps(videos), content_type="application/json") 
   
 	def _query(self):
   		categoria = self.request.GET.get('categoria', None)
@@ -79,3 +65,4 @@ class HomePageView(TemplateView):
 			return getattr(self, '_%s' % cmd)()
 
 		return super(HomePageView, self).get(*args, **kwargs)
+    
