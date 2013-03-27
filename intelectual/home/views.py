@@ -23,7 +23,7 @@ class HomePageView(TemplateView):
 
 			if len(videos) > 0:
 			    video = random.sample(videos, 1)            
-			    videos_list.append(video.to_json())
+			    videos_list.append(video[0].to_json())
 
 		return HttpResponse(simplejson.dumps(videos_list), content_type="application/json") 
   
