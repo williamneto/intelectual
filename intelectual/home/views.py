@@ -17,15 +17,15 @@ class HomePageView(TemplateView):
 
 	def _get_initial_wall(self):
 		categorias = Categoria.objects.all()		
-		videos = []
+		videos_list = []
 		for categoria in categorias:
 			videos = Video.objects.filter(categoria=categoria)
 
 			if len(videos) > 0:
 			    video = random.sample(videos, 1)            
-			videos.append(video.to_json())
+			videos_list.append(video.to_json())
 
-		return HttpResponse(simplejson.dumps(videos), content_type="application/json") 
+		return HttpResponse(simplejson.dumps(videos_list), content_type="application/json") 
   
 	def _query(self):
   		categoria = self.request.GET.get('categoria', None)
