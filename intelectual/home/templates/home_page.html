@@ -7,22 +7,7 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}js/mosaic_wall.js"></script>
 	<script>
 		$(document).ready(function(){
-			setup = new Setup();
-			
-	
-			$("#action_previous").click(function(){
-				setup.PreviousWallVideo();
-			});
-	
-			$("#action_next").click(function(){
-				setup.NextWallVideo();
-			});
-			
-		});
-
-		$(document).delegate("img.botao_imagem", "click", function(){
-			index = this.id;	
-			setup.SetMainWall(parseInt(index));
+			setup = new Setup();			
 		});
 	</script>
 {% endblock %}
@@ -36,7 +21,7 @@
 				</td>
 				<td>
 					<div id="video_inicial_container">
-		
+		                
 					</div>
 				</td>
 				<td>
@@ -44,19 +29,6 @@
 				</td>
 			</tr>
 		</table>
-        <script type="text/html" class="buttons" id="botoes_template">
-            <center>
-            <table>
-            <tr>
-            <% _.each(categorias, function(categoria){ %>
-            <td class="botao_categoria_container" id="<%= categoria.id %>_action">
-            <img class="botao_imagem" id="<%= categoria.index %>" src="<%= categoria.botao_imagem %>">
-            </td>
-            <% }) %>
-            </tr>
-            </table>
-            </center>
-        </script>
 		<div class="botoes" id="botoes_container">
 		</div>
 	</div>
