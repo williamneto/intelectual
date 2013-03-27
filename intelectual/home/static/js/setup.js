@@ -21,25 +21,29 @@ function Setup(){
     this.show = function(){
         var wall = _instance.getWallList();
         var i = _instance.getWallIndex();        
+        var video = wall[i];
         
-        if (i <= wall.length){
-            var video = wall[i];
-            
-            video_inicial_container = $("#video_inicial_container");
-            video_iframe = $(video.iframe);
-            video_inicial_container.html(video_iframe);
-        }
+        video_inicial_container = $("#video_inicial_container");
+        video_iframe = $(video.iframe);
+        video_inicial_container.html(video_iframe);
     }
     this.next = function(){
-        var i = _instance.getWallIndex() + 1;
-        
-        _instance.setWallIndex(i);      
-        _instance.show();
+        var wall = _instance.getWallList();
+        var i = _instance.getWallIndex();
+        if (i < wall.length-1){
+            i += 1;
+            
+            _instance.setWallIndex(i);      
+            _instance.show();
+        }
     }
     this.prev = function(){
-        var i = _instance.getWallIndex() - 1;
-        
-        _instance.setWallIndex(i);      
-        _instance.show();
+        var i = _instance.getWallIndex();
+        if (i > 0){
+            i = i - 1;
+            
+            _instance.setWallIndex(i);      
+            _instance.show();
+        }
     }
 }
