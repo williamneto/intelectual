@@ -7,7 +7,16 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}js/mosaic_wall.js"></script>
 	<script>
 		$(document).ready(function(){
-			setup = new Setup();			
+			setup = new Setup();
+			
+            var params = {
+                "cmd": "get_initial_wall"
+            }
+            $.getJSON(".", params, function(data){                
+                setup.setWallList(data);        
+                setup.show();
+            });			
+            
 		});
 	</script>
 {% endblock %}
