@@ -27,7 +27,14 @@
             });			
             
             $("#action_next").click(setup.next);
-            $("#action_previous").click(setup.prev);     
+            $("#action_previous").click(setup.prev); 
+            
+            $(".thumbnail").mouseover(function(){
+                $(".thumbnail").css({"opacity":"1"});
+            });
+            $(".thumbnail").mouseout(function(){
+                $(".thumbnail").css({"opacity":"0.3"});
+            });
 		});
 	</script>
 {% endblock %}
