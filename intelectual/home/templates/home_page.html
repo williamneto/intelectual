@@ -14,20 +14,20 @@
             $.getJSON(".", params, function(data){                
                 setup.setWallList(data);        
                 setup.show();
+                
+                var wall = setup.getWallList();
+                var container = $("#miniaturas").html("");
+                for (var i = 0; i < wall.length; i++){
+                    object = wall[i];
+                    
+                    var thumbnail = $("<img src='" + object.thumbnail + "' class='thumbnail'>").hide();
+                    thumbnail.appendTo(container);
+                    thumbnail.fadeIn();               
+            }
             });			
             
             $("#action_next").click(setup.next);
-            $("#action_previous").click(setup.prev);
-            
-            var wall = setup.getWallList();
-            var container = $("#miniaturas").html("");
-            for (var i = 0; i < wall.length; i++){
-                object = wall[i];
-                
-                var thumbnail = $("<img src='" + object.thumbnail + "' class='thumbnail'>").hide();
-                thumbnail.appendTo(container);
-                thumbnail.fadeIn();               
-            }     
+            $("#action_previous").click(setup.prev);     
 		});
 	</script>
 {% endblock %}
@@ -49,6 +49,7 @@
 				</td>
 			</tr>
 		</table>
+		<br>
 		<div id="miniaturas"></div>
 		<div class="botoes" id="botoes">
 		</div>
