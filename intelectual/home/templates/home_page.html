@@ -18,7 +18,17 @@
             });			
             
             $("#action_next").click(setup.next);
-            $("#action_previous").click(setup.prev);            
+            $("#action_previous").click(setup.prev);
+            
+            var wall = setup.getWallList();
+            var container = $("#miniaturas").html("");
+            for (var i = 0; i < wall.length; i++){
+                object = wall[i];
+                
+                var thumbnail = $("<img src='" + object.thumbnail + "' class='thumbnail'>").hide();
+                thumbnail.appendTo(container);
+                thumbnail.fadeIn();               
+            }     
 		});
 	</script>
 {% endblock %}
@@ -40,7 +50,8 @@
 				</td>
 			</tr>
 		</table>
-		<div class="botoes" id="botoes_container">
+		<div id="miniaturas"></div>
+		<div class="botoes" id="botoes">
 		</div>
 	</div>
 	<br><br><br><br>
